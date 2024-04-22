@@ -1,6 +1,5 @@
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const path = require('path');
 
 
@@ -8,7 +7,8 @@ const config = {
   entry: './src/index.js',
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'bundle.js'
+    filename: 'bundle.js',
+    clean: true
   },
   mode: 'development',
   devServer: {
@@ -25,7 +25,6 @@ const config = {
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, 'src', 'template.html')
     }),
-    new CleanWebpackPlugin()
   ],
   module: {
     rules: [
