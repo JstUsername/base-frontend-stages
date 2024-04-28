@@ -1,0 +1,188 @@
+<header>
+    <div class="relative z-50 bg-white shadow">
+        <div class="mx-auto max-w-[1440px]">
+            <nav class="flex flex-row flex-wrap items-center gap-8 pl-9 pr-8 py-2 bg-white">
+                <div class="inline-flex gap-1.5 items-center grow">
+                    <a
+                        href="/home"
+                        onclick="route()"
+                        class="shrink-0 transition ease-in-out hover:scale-110 z-50">
+                        <img
+                            src="/public/icons/back-arrow.svg"
+                            alt="Back arrow"
+                            width="24px"
+                            height="24px" />
+                    </a>
+                    <span class="font-roboto_medium text-lg text-black hidden sm:inline-block">
+                        User pages
+                    </span>
+                    <span class="font-roboto_regular text-lg text-black hidden sm:inline-block">
+                        -
+                    </span>
+                    <span class="font-roboto_regular text-lg text-black">Profile</span>
+                </div>
+                <button
+                    class="flex-col items-center shrink-0 -m-0.5 font-roboto_regular text-sm text-black transition ease-in-out hover:scale-110 hidden sm:flex">
+                    <img
+                        src="/public/icons/statistics.svg"
+                        alt="Statistics"
+                        width="24px"
+                        height="24px"
+                        class="pb-2" />
+                    Statistics
+                </button>
+                <button
+                    class="flex-col items-center shrink-0 -m-0.5 font-roboto_regular text-sm text-black transition ease-in-out hover:scale-110 hidden sm:flex">
+                    <img
+                        src="/public/icons/invoices.svg"
+                        alt="Invoices"
+                        width="24px"
+                        height="24px"
+                        class="pb-2" />
+                    Invoices
+                </button>
+                <button
+                    class="flex-col items-center shrink-0 -m-0.5 font-roboto_regular text-sm text-black transition ease-in-out hover:scale-110 hidden sm:flex">
+                    <img
+                        src="/public/icons/schedule.svg"
+                        alt="Schedule"
+                        width="24px"
+                        height="24px"
+                        class="pb-2" />
+                    Schedule
+                </button>
+                <button
+                    class="flex flex-col items-center shrink-0 transition ease-in-out hover:scale-110 sm:hidden">
+                    <img src="/public/icons/activity.svg" alt="Menu" width="24px" height="24px" />
+                </button>
+            </nav>
+        </div>
+    </div>
+    <div class="relative z-40 bg-bg_2 shadow">
+        <div class="mx-auto max-w-[1440px]">
+            <nav class="flex flex-wrap px-8 justify-center md:justify-normal bg-bg_2">
+                <a
+                    href="/activity"
+                    onclick="route()"
+                    class="inline-flex items-center shrink-0 font-roboto_regular text-sm py-2.5 px-4 hover:bg-bg">
+                    <img
+                        src="/public/icons/activity.svg"
+                        alt="Activity"
+                        width="20px"
+                        height="20px"
+                        class="mr-3" />
+                    Activity
+                </a>
+                <a
+                    href="/map"
+                    onclick="route()"
+                    class="inline-flex items-center shrink-0 py-2.5 px-4 font-roboto_regular text-sm text-black transition ease-in-out bg-bg">
+                    <img
+                        src="/public/icons/map.svg"
+                        alt="Map"
+                        width="20px"
+                        height="20px"
+                        class="mr-3" />
+                    Map
+                </a>
+                <a
+                    href="/time"
+                    onclick="route()"
+                    class="inline-flex items-center shrink-0 py-2.5 px-4 font-roboto_regular text-sm text-black transition ease-in-out hover:bg-bg mr-0 md:mr-auto">
+                    <img
+                        src="/public/icons/time.svg"
+                        alt="Time"
+                        width="20px"
+                        height="20px"
+                        class="mr-3" />
+                    Time
+                </a>
+                <button
+                    class="items-center shrink-0 py-2.5 px-4 font-roboto_regular text-sm text-black transition ease-in-out hover:bg-bg hidden sm:inline-flex">
+                    <img
+                        src="/public/icons/notes.svg"
+                        alt="Notes"
+                        width="20px"
+                        height="20px"
+                        class="mr-2" />
+                    Notes
+                </button>
+                <button
+                    class="items-center shrink-0 py-2.5 px-4 font-roboto_regular text-sm text-black transition ease-in-out hover:bg-bg hidden sm:inline-flex">
+                    <img
+                        src="/public/icons/friends.svg"
+                        alt="Friends"
+                        width="20px"
+                        height="20px"
+                        class="mr-2" />
+                    Friends
+                </button>
+                <button
+                    class="items-center shrink-0 py-2.5 px-4 font-roboto_regular text-sm text-black transition ease-in-out hover:bg-bg hidden sm:inline-flex">
+                    <img
+                        src="/public/icons/photos.svg"
+                        alt="Photos"
+                        width="20px"
+                        height="20px"
+                        class="mr-2" />
+                    Photos
+                </button>
+                <button
+                    class="items-center shrink-0 py-2.5 px-2 transition ease-in-out hover:bg-bg hidden sm:inline-flex">
+                    <img
+                        src="/public/icons/settings.svg"
+                        alt="Settings"
+                        width="20px"
+                        height="20px"
+                        class="mr-2" />
+                    <img
+                        src="/public/icons/down-arrow.svg"
+                        alt="Down arrow"
+                        width="24px"
+                        height="24px" />
+                </button>
+                <button
+                    class="items-center py-2.5 px-4 transition ease-in-out hover:bg-bg inline-flex sm:hidden">
+                    <img
+                        src="/public/icons/down-arrow-big.svg"
+                        alt="More"
+                        width="24px"
+                        height="24px" />
+                </button>
+            </nav>
+        </div>
+    </div>
+</header>
+<div class="mx-auto max-w-[1440px]">
+    <div id="map-block" class="m-8 px-8 pb-8 bg-white">
+        <div class="map-header flex justify-between py-[16px]">
+            <span class="font-roboto_regular text-base text-black">Basic map</span>
+            <div class="inline-flex gap-2">
+                <button class="shrink-0 transition ease-in-out hover:scale-110">
+                    <img
+                        src="/public/icons/down-arrow-big.svg"
+                        height="24px"
+                        width="24px"
+                        alt="Hide map" />
+                </button>
+                <button id="reload-map" class="shrink-0 transition ease-in-out hover:scale-110">
+                    <img
+                        src="/public/icons/reload.svg"
+                        height="24px"
+                        width="24px"
+                        alt="Reload map" />
+                </button>
+                <button class="shrink-0 transition ease-in-out hover:scale-110">
+                    <img src="/public/icons/close.svg" height="24px" width="24px" alt="Close map" />
+                </button>
+            </div>
+        </div>
+        <div id="map-body" class="flex justify-center align-middle h-[480px]">
+            <img
+                id="map-loader"
+                src="/public/icons/reload.svg"
+                class="w-[48px] animate-spin sm:w-[72px]" />
+        </div>
+    </div>
+    <script src="/dist/bundle.js"></script>
+</div>
