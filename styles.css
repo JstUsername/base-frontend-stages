@@ -6,12 +6,12 @@
 /* ===== Fonts ===== */
 @font-face {
     font-family: "roboto_regular";
-    src: url("/public/fonts/Roboto-Regular.ttf");
+    src: url("/base-frontend-stages/public/fonts/Roboto-Regular.ttf");
 }
 
 @font-face {
     font-family: "roboto_medium";
-    src: url("/public/fonts/Roboto-Medium.ttf");
+    src: url("/base-frontend-stages/public/fonts/Roboto-Medium.ttf");
 }
 
 /* ===== Scrollbar ===== */

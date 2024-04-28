@@ -1,16 +1,10 @@
-import "./index.html";
-import "./navigation.html";
-import "./activity.html";
-import "./map.html";
-import "./time.html";
-import "./styles.css";
-import * as ymaps3 from "ymaps3";
-import customize from "../map-customization.json";
+import customize from "./map-customization.js";
 
 // Routing
 const route = (event) => {
     event = event || window.event;
     event.preventDefault();
+    window.history.pushState({}, "", event.target.href);
     if (event.target.href != undefined) {
         window.history.pushState({}, "", event.target.href);
     } else {
@@ -19,17 +13,19 @@ const route = (event) => {
     handleLocation();
 };
 const routes = {
-    "/home": "navigation.html",
-    "/activity": "activity.html",
-    "/map": "map.html",
-    "/time": "time.html",
+    "/base-frontend-stages/": "./index.html",
+    "/base-frontend-stages/": "./home.html",
+    "/base-frontend-stages/home": "./home.html",
+    "/base-frontend-stages/activity": "./activity.html",
+    "/base-frontend-stages/map": "./map.html",
+    "/base-frontend-stages/time": "./time.html",
 };
 const handleLocation = async () => {
     const path = window.location.pathname;
     const route = routes[path];
     const html = await fetch(route).then((data) => data.text());
     document.getElementById("main-page").innerHTML = html;
-    if (path === "/map") {
+    if (path === "/base-frontend-stages/map") {
         const reloadMap = document.getElementById("reload-map");
         reloadMap.addEventListener("click", () => {
             initMap();
@@ -40,7 +36,7 @@ const handleLocation = async () => {
         });
         initMap();
     }
-    if (path === "/time") {
+    if (path === "/base-frontend-stages/time") {
         const timer = document.getElementById("timer");
         timer.innerHTML = timeFormat();
         setInterval(() => {
@@ -55,15 +51,11 @@ const handleLocation = async () => {
         });
     }
 };
-window.addEventListener("popstate", function (event) {
-    if (event.state?.source === "back" || event.state?.source === "forward") {
-        window.onpopstate = handleLocation;
-    }
-});
+window.onpopstate = handleLocation;
 window.route = route;
 handleLocation();
 
-// Yandex map
+// // Yandex map
 let map;
 
 async function initMap() {
