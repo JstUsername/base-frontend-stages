@@ -1,57 +1,79 @@
-const webpack = require('webpack');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const path = require('path');
-
+const webpack = require("webpack");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+const path = require("path");
 
 const config = {
-  entry: './src/index.js',
-  output: {
-    path: path.resolve(__dirname, 'dist'),
-    filename: 'bundle.js',
-    clean: true
-  },
-  mode: 'development',
-  devServer: {
-    static: {
-      directory: path.join(__dirname, 'dist'),
+    entry: "./src/index.js",
+    output: {
+        path: path.resolve(__dirname, "dist"),
+        filename: "bundle.js",
+        clean: true,
     },
-    open: true,
-    compress: true,
-    hot: true,
-    port: 8080,
-},
-  plugins: [
-    new webpack.HotModuleReplacementPlugin(),
-    new HtmlWebpackPlugin({
-      template: path.resolve(__dirname, 'src', 'template.html')
-    }),
-  ],
-  module: {
-    rules: [
-      {
-        test: /\.css$/,
-        include: path.resolve(__dirname, 'src'),
-        use: [
-          'style-loader',
-          {
-            loader: 'css-loader',
-            options: {
-              importLoaders: 1
-            }
-          },
-          'postcss-loader'
-        ]
-      },
-      {
-        test: /\.svg$/,
-        use: 'file-loader'
-      },
-      {
-        test: /\.html$/i,
-        loader: "html-loader",
-      },
-    ]
-  }
+    externals: {
+        ymaps3: "ymaps3",
+    },
+    devtool: "cheap-source-map",
+    devServer: {
+        static: {
+            directory: path.join(__dirname, "dist"),
+        },
+        open: "home",
+        compress: true,
+        hot: true,
+        port: 8080,
+        historyApiFallback: {
+            index: "/home.html",
+        },
+    },
+    plugins: [
+        new webpack.HotModuleReplacementPlugin(),
+        new HtmlWebpackPlugin({
+            filename: "home.html",
+            template: "./src/index.html",
+        }),
+        new HtmlWebpackPlugin({
+            filename: "navigation.html",
+            template: "./src/navigation.html",
+        }),
+        new HtmlWebpackPlugin({
+            filename: "activity.html",
+            template: "./src/activity.html",
+        }),
+        new HtmlWebpackPlugin({
+            filename: "map.html",
+            template: "./src/map.html",
+        }),
+        new HtmlWebpackPlugin({
+            filename: "time.html",
+            template: "./src/time.html",
+        }),
+    ],
+    module: {
+        rules: [
+            {
+                test: /\.css$/,
+                include: path.resolve(__dirname, "src"),
+                use: [
+                    "style-loader",
+                    {
+                        loader: "css-loader",
+                        options: {
+                            importLoaders: 1,
+                        },
+                    },
+                    "postcss-loader",
+                ],
+            },
+            {
+                test: /\.svg$/,
+                type: "asset/resource",
+            },
+            {
+                test: /\.html$/i,
+                loader: "html-loader",
+            },
+        ],
+    },
 };
 
 module.exports = config;
