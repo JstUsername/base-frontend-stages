@@ -1,3 +1,68 @@
+/* ===== Tailwind ===== */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* ===== Fonts ===== */
+@font-face {
+    font-family: "roboto_regular";
+    src: url("/public/fonts/Roboto-Regular.ttf");
+}
+
+@font-face {
+    font-family: "roboto_medium";
+    src: url("/public/fonts/Roboto-Medium.ttf");
+}
+
+/* ===== Scrollbar ===== */
+body {
+    --sb-track-color: rgba(0, 0, 0, 0);
+    --sb-thumb-color: #8f8f8f;
+    --sb-size: 6px;
+}
+
+body::-webkit-scrollbar {
+    width: var(--sb-size);
+}
+
+body::-webkit-scrollbar-track {
+    background: var(--sb-track-color);
+    border-radius: 6px;
+}
+
+body::-webkit-scrollbar-thumb {
+    background: var(--sb-thumb-color);
+    border-radius: 6px;
+}
+
+@supports not selector(::-webkit-scrollbar) {
+    body {
+        scrollbar-color: var(--sb-thumb-color) var(--sb-track-color);
+    }
+}
+
+textarea {
+    --sb-track-color: rgba(0, 0, 0, 0);
+    --sb-thumb-color: #8f8f8f;
+    --sb-size: 4px;
+}
+
+textarea::-webkit-scrollbar {
+    width: var(--sb-size);
+}
+
+textarea::-webkit-scrollbar-track {
+    background: var(--sb-track-color);
+    border-radius: 4px;
+}
+
+textarea::-webkit-scrollbar-thumb {
+    background: var(--sb-thumb-color);
+    border-radius: 4px;
+}
+
+@supports not selector(::-webkit-scrollbar) {
+    textarea {
+        scrollbar-color: var(--sb-thumb-color) var(--sb-track-color);
+    }
+}
