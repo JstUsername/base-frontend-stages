@@ -1,4 +1,8 @@
 import "./index.html";
+import "./navigation.html";
+import "./activity.html";
+import "./map.html";
+import "./time.html";
 import "./styles.css";
 import * as ymaps3 from "ymaps3";
 import customize from "../map-customization.json";
