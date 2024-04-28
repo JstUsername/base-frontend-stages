@@ -1,0 +1,434 @@
+<header>
+    <div class="relative z-50 bg-white shadow">
+        <div class="mx-auto max-w-[1440px]">
+            <nav class="flex flex-row flex-wrap items-center gap-8 pl-9 pr-8 py-2 bg-white">
+                <div class="inline-flex gap-1.5 items-center grow">
+                    <a
+                        href="/home"
+                        onclick="route()"
+                        class="shrink-0 transition ease-in-out hover:scale-110 z-50">
+                        <img
+                            src="/public/icons/back-arrow.svg"
+                            alt="Back arrow"
+                            width="24px"
+                            height="24px" />
+                    </a>
+                    <span class="font-roboto_medium text-lg text-black hidden sm:inline-block">
+                        User pages
+                    </span>
+                    <span class="font-roboto_regular text-lg text-black hidden sm:inline-block">
+                        -
+                    </span>
+                    <span class="font-roboto_regular text-lg text-black">Profile</span>
+                </div>
+                <button
+                    class="flex-col items-center shrink-0 -m-0.5 font-roboto_regular text-sm text-black transition ease-in-out hover:scale-110 hidden sm:flex">
+                    <img
+                        src="/public/icons/statistics.svg"
+                        alt="Statistics"
+                        width="24px"
+                        height="24px"
+                        class="pb-2" />
+                    Statistics
+                </button>
+                <button
+                    class="flex-col items-center shrink-0 -m-0.5 font-roboto_regular text-sm text-black transition ease-in-out hover:scale-110 hidden sm:flex">
+                    <img
+                        src="/public/icons/invoices.svg"
+                        alt="Invoices"
+                        width="24px"
+                        height="24px"
+                        class="pb-2" />
+                    Invoices
+                </button>
+                <button
+                    class="flex-col items-center shrink-0 -m-0.5 font-roboto_regular text-sm text-black transition ease-in-out hover:scale-110 hidden sm:flex">
+                    <img
+                        src="/public/icons/schedule.svg"
+                        alt="Schedule"
+                        width="24px"
+                        height="24px"
+                        class="pb-2" />
+                    Schedule
+                </button>
+                <button
+                    class="flex flex-col items-center shrink-0 transition ease-in-out hover:scale-110 sm:hidden">
+                    <img src="/public/icons/activity.svg" alt="Menu" width="24px" height="24px" />
+                </button>
+            </nav>
+        </div>
+    </div>
+    <div class="relative z-40 bg-bg_2 shadow">
+        <div class="mx-auto max-w-[1440px]">
+            <nav class="flex flex-wrap px-8 justify-center md:justify-normal bg-bg_2">
+                <a
+                    href="/activity"
+                    onclick="route()"
+                    class="inline-flex items-center shrink-0 font-roboto_regular text-sm py-2.5 px-4 bg-bg">
+                    <img
+                        src="/public/icons/activity.svg"
+                        alt="Activity"
+                        width="20px"
+                        height="20px"
+                        class="mr-3" />
+                    Activity
+                </a>
+                <a
+                    href="/map"
+                    onclick="route()"
+                    class="inline-flex items-center shrink-0 py-2.5 px-4 font-roboto_regular text-sm text-black transition ease-in-out hover:bg-bg">
+                    <img
+                        src="/public/icons/map.svg"
+                        alt="Map"
+                        width="20px"
+                        height="20px"
+                        class="mr-3" />
+                    Map
+                </a>
+                <a
+                    href="/time"
+                    onclick="route()"
+                    class="inline-flex items-center shrink-0 py-2.5 px-4 font-roboto_regular text-sm text-black transition ease-in-out hover:bg-bg mr-0 md:mr-auto">
+                    <img
+                        src="/public/icons/time.svg"
+                        alt="Time"
+                        width="20px"
+                        height="20px"
+                        class="mr-3" />
+                    Time
+                </a>
+                <button
+                    class="items-center shrink-0 py-2.5 px-4 font-roboto_regular text-sm text-black transition ease-in-out hover:bg-bg hidden sm:inline-flex">
+                    <img
+                        src="/public/icons/notes.svg"
+                        alt="Notes"
+                        width="20px"
+                        height="20px"
+                        class="mr-2" />
+                    Notes
+                </button>
+                <button
+                    class="items-center shrink-0 py-2.5 px-4 font-roboto_regular text-sm text-black transition ease-in-out hover:bg-bg hidden sm:inline-flex">
+                    <img
+                        src="/public/icons/friends.svg"
+                        alt="Friends"
+                        width="20px"
+                        height="20px"
+                        class="mr-2" />
+                    Friends
+                </button>
+                <button
+                    class="items-center shrink-0 py-2.5 px-4 font-roboto_regular text-sm text-black transition ease-in-out hover:bg-bg hidden sm:inline-flex">
+                    <img
+                        src="/public/icons/photos.svg"
+                        alt="Photos"
+                        width="20px"
+                        height="20px"
+                        class="mr-2" />
+                    Photos
+                </button>
+                <button
+                    class="items-center shrink-0 py-2.5 px-2 transition ease-in-out hover:bg-bg hidden sm:inline-flex">
+                    <img
+                        src="/public/icons/settings.svg"
+                        alt="Settings"
+                        width="20px"
+                        height="20px"
+                        class="mr-2" />
+                    <img
+                        src="/public/icons/down-arrow.svg"
+                        alt="Down arrow"
+                        width="24px"
+                        height="24px" />
+                </button>
+                <button
+                    class="items-center py-2.5 px-4 transition ease-in-out hover:bg-bg inline-flex sm:hidden">
+                    <img
+                        src="/public/icons/down-arrow-big.svg"
+                        alt="More"
+                        width="24px"
+                        height="24px" />
+                </button>
+            </nav>
+        </div>
+    </div>
+</header>
+<main class="content flex m-8 gap-8 justify-center">
+    <div class="flex w-[1080px] flex-col gap-8">
+        <div class="content-block flex flex-col gap-4 px-8 py-8 bg-white">
+            <div class="overflow-hidden h-[215px] sm:h-full">
+                <img
+                    src="/public/images/activity_image.png"
+                    alt="Published image"
+                    class="h-full object-cover" />
+            </div>
+            <div class="comment-block flex flex-col gap-4">
+                <div class="comment-header inline-flex items-center gap-2">
+                    <img src="/public/icons/comment.svg" alt="Comment" width="24px" height="24px" />
+                    <span class="font-roboto_regular text-sm text-blue whitespace-nowrap">
+                        Jason Anderson
+                    </span>
+                    <span class="font-roboto_regular text-sm text-black">commented:</span>
+                </div>
+                <div class="comment-body flex flex-col px-2 gap-4 border-l-2 border-grey">
+                    <p class="font-roboto_regular text-sm text-black align-top">
+                        Don’t sit and wait. Get out there, feel life. Touch the sun, and immerse in
+                        the sea. Keep love in your heart. A life without it is like a sunless garden
+                        when the flowers are dead. Because summer is passion, memories, light
+                        breeze, the sun that appears on the skin and caresses the face.
+                    </p>
+                    <div>
+                        <span class="font-roboto_regular text-sm align-bottom text-second_tx">
+                            – Jason,
+                        </span>
+                        <span
+                            class="font-roboto_regular text-sm align-bottom text-second_tx italic">
+                            10:30 am
+                        </span>
+                    </div>
+                </div>
+                <div class="comment-footer inline-flex align-middle gap-8">
+                    <div class="inline-flex items-center gap-2">
+                        <img
+                            src="/public/icons/eye.svg"
+                            alt="Number of views"
+                            width="24px"
+                            height="24px"
+                            class="transition ease-in-out hover:scale-110" />
+                        <span class="font-roboto_regular text-sm text-black">432</span>
+                    </div>
+                    <div class="inline-flex items-center gap-2">
+                        <img
+                            src="/public/icons/comment.svg"
+                            alt="Number of comments"
+                            width="24px"
+                            height="24px"
+                            class="transition ease-in-out hover:scale-110" />
+                        <span class="font-roboto_regular text-sm text-black">47</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div
+            class="hidden-post flex flex-row justify-between items-center px-8 py-4 gap-4 bg-white">
+            <span class="font-roboto_regular text-base text-black">Sunset</span>
+            <div class="inline-flex gap-4">
+                <div class="time-ago inline-flex items-center gap-2 max-sm:hidden">
+                    <img
+                        src="/public/icons/time.svg"
+                        alt="Number of comments"
+                        width="24px"
+                        height="24px" />
+                    <span class="font-roboto_regular text-base text-black">53 minutes ago</span>
+                </div>
+                <img
+                    src="/public/icons/down-arrow-big.svg"
+                    alt="Open the post"
+                    width="24px"
+                    height="24px"
+                    class="transition ease-in-out hover:scale-110" />
+            </div>
+        </div>
+        <div
+            class="hidden-post flex flex-row justify-between items-center px-8 py-4 gap-4 bg-white">
+            <span class="font-roboto_regular text-base text-black">Morning of Siberia</span>
+            <div class="inline-flex gap-4">
+                <div class="time-ago inline-flex items-center gap-2 max-sm:hidden">
+                    <img
+                        src="/public/icons/time.svg"
+                        alt="Number of comments"
+                        width="24px"
+                        height="24px" />
+                    <span class="font-roboto_regular text-base text-black">56 minutes ago</span>
+                </div>
+                <img
+                    src="/public/icons/down-arrow-big.svg"
+                    alt="Open the post"
+                    width="24px"
+                    height="24px"
+                    class="transition ease-in-out hover:scale-110" />
+            </div>
+        </div>
+        <div
+            class="hidden-post flex flex-row justify-between items-center px-8 py-4 gap-4 bg-white">
+            <span class="font-roboto_regular text-base text-black">Lets celebrate...</span>
+            <div class="inline-flex gap-4">
+                <div class="time-ago inline-flex items-center gap-2 max-sm:hidden">
+                    <img
+                        src="/public/icons/time.svg"
+                        alt="Number of comments"
+                        width="24px"
+                        height="24px" />
+                    <span class="font-roboto_regular text-base text-black">59 minutes ago</span>
+                </div>
+                <img
+                    src="/public/icons/down-arrow-big.svg"
+                    alt="Open the post"
+                    width="24px"
+                    height="24px"
+                    class="transition ease-in-out hover:scale-110" />
+            </div>
+        </div>
+    </div>
+    <div class="flex-col space-y-8 w-[264px] flex max-md:hidden">
+        <div class="user-profile-block flex flex-col items-center bg-white gap-4">
+            <div class="relative px-8 pt-8">
+                <div
+                    class="absolute inline-flex h-3 w-3 top-8 right-8 rounded-full bg-[#47B091] animate-pulse"></div>
+                <img
+                    src="/public/images/profile_picture.jpg"
+                    alt="Profile picture"
+                    width="132px"
+                    height="132px"
+                    class="rounded-full" />
+            </div>
+            <div class="flex flex-col px-8">
+                <span class="font-roboto_regular text-lg text-center text-black">
+                    Andrey Gorchakov
+                </span>
+                <span class="self-center font-roboto_regular text-sm text-center text-second_tx">
+                    Frontend developer
+                </span>
+            </div>
+            <div class="flex gap-2 mb-8">
+                <a href="https://t.me/JstUser" target="_blank">
+                    <img
+                        src="/public/icons/telegram.svg"
+                        alt="Telegram"
+                        width="20px"
+                        height="20px"
+                        class="transition ease-in-out hover:scale-110" />
+                </a>
+                <a href="https://github.com/JstUsername" target="_blank">
+                    <img
+                        src="/public/icons/github.svg"
+                        alt="Github"
+                        width="20px"
+                        height="20px"
+                        class="transition ease-in-out hover:scale-110" />
+                </a>
+            </div>
+        </div>
+        <div class="navigation-block flex flex-col">
+            <div
+                class="navigation-header inline-flex justify-between items-center border-b-[1px] border-grey px-4 py-2 gap-4 bg-white">
+                <span class="font-roboto_medium text-base text-black leading-5">Navigation</span>
+                <button class="transition ease-in-out hover:scale-110">
+                    <img
+                        src="/public/icons/up-arrow.svg"
+                        alt="Hide navigation"
+                        width="20px"
+                        height="20px" />
+                </button>
+            </div>
+            <div class="navigation-body flex flex-col border-b-[1px] border-grey bg-white">
+                <button
+                    class="inline-flex items-center px-4 py-2.5 gap-4 transition ease-in-out hover:bg-bg">
+                    <img src="/public/icons/profile.svg" alt="Profile" width="24px" height="24px" />
+                    <span class="font-roboto_regular text-sm text-black">My profile</span>
+                </button>
+                <button
+                    class="inline-flex justify-between items-center px-4 py-2.5 gap-4 transition ease-in-out hover:bg-bg">
+                    <div class="inline-flex gap-4 items-center">
+                        <img
+                            src="/public/icons/balance.svg"
+                            alt="Balance"
+                            width="24px"
+                            height="24px" />
+                        <span class="font-roboto_regular text-sm text-black">Balance</span>
+                    </div>
+                    <span
+                        class="justify-end whitespace-nowrap font-roboto_regular text-sm text-grey max-[1072px]:hidden">
+                        $ 1,430
+                    </span>
+                </button>
+                <button
+                    class="inline-flex justify-between items-center px-4 py-2.5 gap-4 transition ease-in-out hover:bg-bg">
+                    <div class="inline-flex gap-4 items-center">
+                        <img
+                            src="/public/icons/connections.svg"
+                            alt="Connections"
+                            width="24px"
+                            height="24px" />
+                        <span class="font-roboto_regular text-sm text-black">Connections</span>
+                    </div>
+                    <div
+                        class="h-[16px] flex items-center px-1.5 rounded-full bg-[#E33939] max-[1072px]:hidden">
+                        <span class="font-roboto_regular text-xs text-white">29</span>
+                    </div>
+                </button>
+                <button
+                    class="inline-flex items-center px-4 py-2.5 gap-4 transition ease-in-out hover:bg-bg">
+                    <img src="/public/icons/friends.svg" alt="Friends" width="24px" height="24px" />
+                    <span class="font-roboto_regular text-sm text-black">Friends</span>
+                </button>
+            </div>
+            <div class="navigation-footer flex flex-col bg-white">
+                <button
+                    class="inline-flex justify-between items-center px-4 py-2.5 gap-4 transition ease-in-out hover:bg-bg">
+                    <div class="inline-flex gap-4 items-center">
+                        <img
+                            src="/public/icons/events.svg"
+                            alt="Events"
+                            width="24px"
+                            height="24px" />
+                        <span class="font-roboto_regular text-sm text-black">Events</span>
+                    </div>
+                    <div
+                        class="h-[16px] flex items-center px-1.5 rounded-full bg-[#47B091] max-[1072px]:hidden">
+                        <span class="font-roboto_regular text-xs text-white">45</span>
+                    </div>
+                </button>
+                <button
+                    class="inline-flex items-center px-4 py-2.5 gap-4 transition ease-in-out hover:bg-bg">
+                    <img
+                        src="/public/icons/settings.svg"
+                        alt="Account setting"
+                        width="24px"
+                        height="24px" />
+                    <span class="font-roboto_regular text-sm text-left text-black">
+                        Account setting
+                    </span>
+                </button>
+            </div>
+        </div>
+        <div class="new-post-block flex flex-col">
+            <div
+                class="new-post-header inline-flex justify-between items-center border-b-[1px] border-grey px-4 py-2 gap-4 bg-white">
+                <span
+                    class="font-roboto_medium text-base text-black leading-5 overflow-hidden whitespace-nowrap text-ellipsis">
+                    Share your thoughts
+                </span>
+                <button class="shrink-0 transition ease-in-out hover:scale-110">
+                    <img
+                        src="/public/icons/up-arrow.svg"
+                        alt="Hide new post block"
+                        width="20px"
+                        height="20px" />
+                </button>
+            </div>
+            <div class="new-post-body flex flex-col px-4 py-4 gap-4 bg-white">
+                <textarea
+                    placeholder="Enter your message..."
+                    class="resize-none w-full h-[80px] px-4 py-2 border-[1px] rounded border-grey font-roboto_regular text-sm text-second_tx leading-5 focus:outline-none"></textarea>
+                <button
+                    class="px-5 py-1 font-roboto_medium text-sm text-white leading-6 rounded bg-blue transition ease-in-out hover:bg-[#1974E6]">
+                    Save
+                </button>
+            </div>
+        </div>
+    </div>
+</main>
+<footer
+    class="footer-mobile justify-between sticky bottom-0 w-screen px-8 py-2.5 bg-bg_2 shadow hidden max-md:flex">
+    <button class="shrink-0 transition ease-in-out hover:scale-110">
+        <img src="/public/icons/profile.svg" alt="Profile" width="24px" height="24px" />
+    </button>
+    <button class="shrink-0 transition ease-in-out hover:scale-110">
+        <img src="/public/icons/settings.svg" alt="Settings" width="24px" height="24px" />
+    </button>
+    <button class="shrink-0 transition ease-in-out hover:scale-110">
+        <img src="/public/icons/post.svg" alt="New post" width="24px" height="24px" />
+    </button>
+</footer>
+<script src="/dist/bundle.js"></script>
