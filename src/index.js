@@ -1,6 +1,5 @@
 import './styles.css';
 import * as ymaps3 from 'ymaps3';
-import customize from '../map-customization.json';
 
 // Routing
 const route = (event) => {
@@ -65,9 +64,7 @@ async function initMap() {
   }
   await ymaps3.ready;
   const { YMap, YMapDefaultSchemeLayer } = ymaps3;
-  const layer = new YMapDefaultSchemeLayer({
-    customization: customize,
-  });
+  const layer = new YMapDefaultSchemeLayer();
   setTimeout(() => {
     map = new YMap(document.getElementById('map-body'), {
       location: {
