@@ -1,8 +1,3 @@
-import "./index.html";
-import "./navigation.html";
-import "./activity.html";
-import "./map.html";
-import "./time.html";
 import "./styles.css";
 import * as ymaps3 from "ymaps3";
 import customize from "../map-customization.json";
@@ -55,11 +50,7 @@ const handleLocation = async () => {
         });
     }
 };
-window.addEventListener("popstate", function (event) {
-    if (event.state?.source === "back" || event.state?.source === "forward") {
-        window.onpopstate = handleLocation;
-    }
-});
+window.onpopstate = handleLocation;
 window.route = route;
 handleLocation();
 
