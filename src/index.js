@@ -65,16 +65,14 @@ async function initMap() {
   await ymaps3.ready;
   const { YMap, YMapDefaultSchemeLayer } = ymaps3;
   const layer = new YMapDefaultSchemeLayer();
-  setTimeout(() => {
-    map = new YMap(document.getElementById('map-body'), {
-      location: {
-        center: [37.6219616833542, 55.75208325269551],
-        zoom: 13,
-      },
-    });
-    map.addChild(layer);
-    mapLoader.classList.add('hidden');
-  }, 250);
+  map = new YMap(document.getElementById('map-body'), {
+    location: {
+      center: [37.6219616833542, 55.75208325269551],
+      zoom: 13,
+    },
+  });
+  map.addChild(layer);
+  mapLoader.classList.add('hidden');
 }
 
 // Timer
