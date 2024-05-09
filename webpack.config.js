@@ -23,18 +23,18 @@ const config = {
         hot: true,
         port: 8080,
         historyApiFallback: {
-            index: "/home.html",
+            index: "/index.html",
         },
     },
     plugins: [
         new webpack.HotModuleReplacementPlugin(),
         new HtmlWebpackPlugin({
-            filename: "home.html",
+            filename: "index.html",
             template: "./src/index.html",
         }),
         new HtmlWebpackPlugin({
-            filename: "navigation.html",
-            template: "./src/navigation.html",
+            filename: "home.html",
+            template: "./src/home.html",
         }),
         new HtmlWebpackPlugin({
             filename: "activity.html",
