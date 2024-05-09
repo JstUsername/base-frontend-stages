@@ -63,7 +63,8 @@ async function initMap() {
     map.destroy();
   }
   await ymaps3.ready;
-  const { YMap, YMapDefaultSchemeLayer } = ymaps3;
+  const { YMap, YMapDefaultSchemeLayer, YMapDefaultFeaturesLayer } = ymaps3;
+  const { YMapDefaultMarker } = await ymaps3.import('@yandex/ymaps3-markers@0.0.1');
   const layer = new YMapDefaultSchemeLayer();
   map = new YMap(document.getElementById('map-body'), {
     location: {
@@ -71,8 +72,16 @@ async function initMap() {
       zoom: 13,
     },
   });
+  const GeoObject = new YMapDefaultMarker({
+    coordinates: [37.6219616833542, 55.75208325269551],
+    title: 'Andrey Gorchakov',
+    subtitle: 'He is located somewhere here',
+    color: '#505050',
+  });
   map.addChild(layer);
   mapLoader.classList.add('hidden');
+  map.addChild(new YMapDefaultFeaturesLayer());
+  map.addChild(GeoObject);
 }
 
 // Timer
