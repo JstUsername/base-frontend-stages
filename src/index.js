@@ -14,7 +14,7 @@ const route = (event) => {
     handleLocation();
 };
 const routes = {
-    "/home": "navigation.html",
+    "/home": "home.html",
     "/activity": "activity.html",
     "/map": "map.html",
     "/time": "time.html",
