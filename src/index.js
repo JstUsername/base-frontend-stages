@@ -35,18 +35,9 @@ const handleLocation = async () => {
     initMap();
   }
   if (path === '/time') {
-    const timer = document.getElementById('timer');
-    timer.innerHTML = timeFormat();
-    setInterval(() => {
-      timer.innerHTML = timeFormat();
-    }, 1000);
-    const reloadTimer = document.getElementById('reload-timer');
-    reloadTimer.addEventListener('click', () => {
-      timer.innerHTML = '00:00:00';
-      seconds = 0;
-      minutes = 0;
-      hours = 0;
-    });
+    reloadStopwatch();
+    resetStopwatch();
+    renderTimer();
   }
 };
 window.onpopstate = handleLocation;
@@ -116,21 +107,81 @@ async function initMap() {
 }
 
 // Timer
-let seconds = 0;
-let minutes = 0;
-let hours = 0;
-const timeFormat = () =>
-  `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+let startTime;
+let stopwatchInterval;
+let passedTime = 0;
 
-function updateTime() {
-  seconds++;
-  if (seconds === 60) {
-    minutes++;
-    seconds = 0;
-  }
-  if (minutes === 60) {
-    hours++;
-    minutes = 0;
-  }
+function startStopwatch() {
+  startTime = new Date().getTime();
+  stopwatchInterval = setInterval(() => {
+    passedTime = Math.floor(new Date().getTime() - startTime);
+  }, 1000);
 }
-setInterval(updateTime, 1000);
+
+function reloadStopwatch() {
+  const reloadTimer = document.getElementById('reload-timer');
+  reloadTimer.addEventListener('click', () => {
+    clearInterval(stopwatchInterval);
+    startStopwatch();
+  });
+}
+
+function resetStopwatch() {
+  const resetTimer = document.getElementById('reset-timer');
+  resetTimer.addEventListener('click', () => {
+    clearInterval(stopwatchInterval);
+    passedTime = 0;
+  });
+}
+
+function renderTimer() {
+  const timer = document.getElementById('timer');
+  setInterval(() => {
+    timer.innerHTML =
+      Math.floor(passedTime / 1000 / 3600)
+        .toString()
+        .padStart(2, '0') +
+      ':' +
+      Math.floor(((passedTime / 1000) % 3600) / 60)
+        .toString()
+        .padStart(2, '0') +
+      ':' +
+      Math.floor((passedTime / 1000) % 60)
+        .toString()
+        .padStart(2, '0');
+  });
+}
+
+startStopwatch();
+
+// const timeFormat = () =>
+//   `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+
+// function updateTime() {
+//   seconds++;
+//   if (seconds === 60) {
+//     minutes++;
+//     seconds = 0;
+//   }
+//   if (minutes === 60) {
+//     hours++;
+//     minutes = 0;
+//   }
+// }
+
+// function renderTimer() {
+//   const timer = document.getElementById('timer');
+//   timer.innerHTML = timeFormat();
+//   setInterval(() => {
+//     timer.innerHTML = timeFormat();
+//   }, 1000);
+//   const reloadTimer = document.getElementById('reload-timer');
+//   reloadTimer.addEventListener('click', () => {
+//     timer.innerHTML = '00:00:00';
+//     seconds = 0;
+//     minutes = 0;
+//     hours = 0;
+//   });
+// }
+
+// setInterval(updateTime, 1000);
