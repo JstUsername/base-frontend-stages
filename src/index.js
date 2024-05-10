@@ -53,6 +53,37 @@ window.onpopstate = handleLocation;
 window.route = route;
 handleLocation();
 
+// Navigation block
+const homeLink = document.getElementById('homeLink');
+const activityLink = document.getElementById('activityLink');
+const mapLink = document.getElementById('mapLink');
+const timeLink = document.getElementById('timeLink');
+
+homeLink.addEventListener('click', () => {
+  route();
+  activityLink.classList.remove('bg-bg');
+  mapLink.classList.remove('bg-bg');
+  timeLink.classList.remove('bg-bg');
+});
+activityLink.addEventListener('click', () => {
+  route();
+  activityLink.classList.add('bg-bg');
+  mapLink.classList.remove('bg-bg');
+  timeLink.classList.remove('bg-bg');
+});
+mapLink.addEventListener('click', () => {
+  route();
+  activityLink.classList.remove('bg-bg');
+  mapLink.classList.add('bg-bg');
+  timeLink.classList.remove('bg-bg');
+});
+timeLink.addEventListener('click', () => {
+  route();
+  activityLink.classList.remove('bg-bg');
+  mapLink.classList.remove('bg-bg');
+  timeLink.classList.add('bg-bg');
+});
+
 // Yandex map
 let map;
 
