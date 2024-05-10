@@ -35,9 +35,13 @@ async function handleLocation() {
     renderTimer();
   }
 }
-window.onpopstate = handleLocation;
-window.route = route;
-handleLocation();
+window.addEventListener('popstate', () => {
+  handleLocation();
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+  handleLocation();
+});
 
 // Navigation block
 function initNavigation() {
