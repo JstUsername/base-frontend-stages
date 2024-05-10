@@ -18,66 +18,62 @@ const routes = {
   '/map': 'map.html',
   '/time': 'time.html',
 };
-const handleLocation = async () => {
+async function handleLocation() {
   const path = window.location.pathname;
   const route = routes[path];
-  const html = await fetch(route).then((data) => data.text());
-  document.getElementById('main-page').innerHTML = html;
+  if (route !== undefined) {
+    const html = await fetch(route).then((data) => data.text());
+    document.getElementById('main-page').innerHTML = html;
+  }
   if (path === '/map') {
-    const reloadMap = document.getElementById('reload-map');
-    reloadMap.addEventListener('click', () => {
-      initMap();
-      reloadMap.setAttribute('disabled', 'disabled');
-      setTimeout(() => {
-        reloadMap.removeAttribute('disabled');
-      }, 300);
-    });
     initMap();
+    reloadMap();
   }
   if (path === '/time') {
     reloadStopwatch();
     resetStopwatch();
     renderTimer();
   }
-};
+}
 window.onpopstate = handleLocation;
 window.route = route;
 handleLocation();
 
 // Navigation block
-const homeLink = document.getElementById('homeLink');
-const activityLink = document.getElementById('activityLink');
-const mapLink = document.getElementById('mapLink');
-const timeLink = document.getElementById('timeLink');
-
-homeLink.addEventListener('click', () => {
-  route();
-  activityLink.classList.remove('bg-bg');
-  mapLink.classList.remove('bg-bg');
-  timeLink.classList.remove('bg-bg');
-});
-activityLink.addEventListener('click', () => {
-  route();
-  activityLink.classList.add('bg-bg');
-  mapLink.classList.remove('bg-bg');
-  timeLink.classList.remove('bg-bg');
-});
-mapLink.addEventListener('click', () => {
-  route();
-  activityLink.classList.remove('bg-bg');
-  mapLink.classList.add('bg-bg');
-  timeLink.classList.remove('bg-bg');
-});
-timeLink.addEventListener('click', () => {
-  route();
-  activityLink.classList.remove('bg-bg');
-  mapLink.classList.remove('bg-bg');
-  timeLink.classList.add('bg-bg');
-});
+function initNavigation() {
+  const homeLink = document.getElementById('homeLink');
+  const activityLink = document.getElementById('activityLink');
+  const mapLink = document.getElementById('mapLink');
+  const timeLink = document.getElementById('timeLink');
+  homeLink.addEventListener('click', () => {
+    route();
+    activityLink.classList.remove('bg-bg');
+    mapLink.classList.remove('bg-bg');
+    timeLink.classList.remove('bg-bg');
+  });
+  activityLink.addEventListener('click', () => {
+    route();
+    activityLink.classList.add('bg-bg');
+    mapLink.classList.remove('bg-bg');
+    timeLink.classList.remove('bg-bg');
+  });
+  mapLink.addEventListener('click', () => {
+    route();
+    activityLink.classList.remove('bg-bg');
+    mapLink.classList.add('bg-bg');
+    timeLink.classList.remove('bg-bg');
+  });
+  timeLink.addEventListener('click', () => {
+    route();
+    activityLink.classList.remove('bg-bg');
+    mapLink.classList.remove('bg-bg');
+    timeLink.classList.add('bg-bg');
+  });
+}
+initNavigation();
 
 // Yandex map
 let map;
-
 async function initMap() {
   const mapLoader = document.getElementById('map-loader');
   mapLoader.classList.remove('hidden');
@@ -105,19 +101,23 @@ async function initMap() {
   map.addChild(new YMapDefaultFeaturesLayer());
   map.addChild(GeoObject);
 }
+function reloadMap() {
+  const reloadMap = document.getElementById('reload-map');
+  reloadMap.addEventListener('click', () => {
+    initMap();
+  });
+}
 
-// Timer
+// Stopwatch
 let startTime;
 let stopwatchInterval;
 let passedTime = 0;
-
 function startStopwatch() {
   startTime = new Date().getTime();
   stopwatchInterval = setInterval(() => {
     passedTime = Math.floor(new Date().getTime() - startTime);
-  }, 1000);
+  });
 }
-
 function reloadStopwatch() {
   const reloadTimer = document.getElementById('reload-timer');
   reloadTimer.addEventListener('click', () => {
@@ -125,7 +125,6 @@ function reloadStopwatch() {
     startStopwatch();
   });
 }
-
 function resetStopwatch() {
   const resetTimer = document.getElementById('reset-timer');
   resetTimer.addEventListener('click', () => {
@@ -133,7 +132,6 @@ function resetStopwatch() {
     passedTime = 0;
   });
 }
-
 function renderTimer() {
   const timer = document.getElementById('timer');
   setInterval(() => {
@@ -151,37 +149,4 @@ function renderTimer() {
         .padStart(2, '0');
   });
 }
-
 startStopwatch();
-
-// const timeFormat = () =>
-//   `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
-
-// function updateTime() {
-//   seconds++;
-//   if (seconds === 60) {
-//     minutes++;
-//     seconds = 0;
-//   }
-//   if (minutes === 60) {
-//     hours++;
-//     minutes = 0;
-//   }
-// }
-
-// function renderTimer() {
-//   const timer = document.getElementById('timer');
-//   timer.innerHTML = timeFormat();
-//   setInterval(() => {
-//     timer.innerHTML = timeFormat();
-//   }, 1000);
-//   const reloadTimer = document.getElementById('reload-timer');
-//   reloadTimer.addEventListener('click', () => {
-//     timer.innerHTML = '00:00:00';
-//     seconds = 0;
-//     minutes = 0;
-//     hours = 0;
-//   });
-// }
-
-// setInterval(updateTime, 1000);
