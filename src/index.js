@@ -25,14 +25,16 @@ async function handleLocation() {
     const html = await fetch(route).then((data) => data.text());
     document.getElementById('main-page').innerHTML = html;
   }
-  if (path === '/map') {
-    initMap();
-    reloadMap();
-  }
-  if (path === '/time') {
-    reloadStopwatch();
-    resetStopwatch();
-    renderTimer();
+  switch (path) {
+    case '/map':
+      initMap();
+      reloadMap();
+      break;
+    case '/time':
+      reloadStopwatch();
+      resetStopwatch();
+      renderTimer();
+      break;
   }
 }
 window.addEventListener('popstate', () => {
