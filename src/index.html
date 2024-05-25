@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en" class="">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="/public/favicon/favicon.ico" />
+    <link rel="manifest" href="/public/favicon/site.webmanifest" />
+    <script src="https://api-maps.yandex.ru/v3/?apikey=828c7a05-a6fd-48f8-a9cb-aee2718d218b&lang=ru_RU"></script>
+    <script src="./index.js"></script>
+    <title>Home</title>
+  </head>
+  <body class="bg-bg">
+    <header>
+      <div class="relative z-50 bg-white shadow">
+        <div class="mx-auto max-w-[1440px]">
+          <nav class="flex flex-row flex-wrap items-center gap-8 pl-9 pr-8 py-2 bg-white">
+            <div class="inline-flex gap-1.5 items-center grow">
+              <a href="/home" id="homeLink" class="shrink-0 transition ease-in-out hover:scale-110 z-50">
+                <img src="/public/icons/back-arrow.svg" alt="Back arrow" width="24px" height="24px" />
+              </a>
+              <span class="font-roboto_medium text-lg text-black hidden sm:inline-block">User pages</span>
+              <span class="font-roboto_regular text-lg text-black hidden sm:inline-block">-</span>
+              <span class="font-roboto_regular text-lg text-black">Profile</span>
+            </div>
+            <button
+              class="flex-col items-center shrink-0 -m-0.5 font-roboto_regular text-sm text-black transition ease-in-out hover:scale-110 hidden sm:flex"
+            >
+              <img src="/public/icons/statistics.svg" alt="Statistics" width="24px" height="24px" class="pb-2" />
+              Statistics
+            </button>
+            <button
+              class="flex-col items-center shrink-0 -m-0.5 font-roboto_regular text-sm text-black transition ease-in-out hover:scale-110 hidden sm:flex"
+            >
+              <img src="/public/icons/invoices.svg" alt="Invoices" width="24px" height="24px" class="pb-2" />
+              Invoices
+            </button>
+            <button
+              class="flex-col items-center shrink-0 -m-0.5 font-roboto_regular text-sm text-black transition ease-in-out hover:scale-110 hidden sm:flex"
+            >
+              <img src="/public/icons/schedule.svg" alt="Schedule" width="24px" height="24px" class="pb-2" />
+              Schedule
+            </button>
+            <button class="flex flex-col items-center shrink-0 transition ease-in-out hover:scale-110 sm:hidden">
+              <img src="/public/icons/activity.svg" alt="Menu" width="24px" height="24px" />
+            </button>
+          </nav>
+        </div>
+      </div>
+      <div class="relative z-40 bg-bg_2 shadow">
+        <div class="mx-auto max-w-[1440px]">
+          <nav class="flex flex-wrap px-8 justify-center md:justify-normal bg-bg_2">
+            <a
+              id="activityLink"
+              href="/activity"
+              class="inline-flex items-center shrink-0 font-roboto_regular text-sm py-2.5 px-4 hover:bg-bg"
+            >
+              <img src="/public/icons/activity.svg" alt="Activity" width="20px" height="20px" class="mr-3" />
+              Activity
+            </a>
+            <a
+              id="mapLink"
+              href="/map"
+              class="inline-flex items-center shrink-0 py-2.5 px-4 font-roboto_regular text-sm text-black transition ease-in-out hover:bg-bg"
+            >
+              <img src="/public/icons/map.svg" alt="Map" width="20px" height="20px" class="mr-3" />
+              Map
+            </a>
+            <a
+              id="timeLink"
+              href="/time"
+              class="inline-flex items-center shrink-0 py-2.5 px-4 font-roboto_regular text-sm text-black transition ease-in-out hover:bg-bg mr-0 md:mr-auto"
+            >
+              <img src="/public/icons/time.svg" alt="Time" width="20px" height="20px" class="mr-3" />
+              Time
+            </a>
+
+            <button
+              class="items-center shrink-0 py-2.5 px-4 font-roboto_regular text-sm text-black transition ease-in-out hover:bg-bg hidden sm:inline-flex"
+            >
+              <img src="/public/icons/notes.svg" alt="Notes" width="20px" height="20px" class="mr-2" />
+              Notes
+            </button>
+            <button
+              class="items-center shrink-0 py-2.5 px-4 font-roboto_regular text-sm text-black transition ease-in-out hover:bg-bg hidden sm:inline-flex"
+            >
+              <img src="/public/icons/friends.svg" alt="Friends" width="20px" height="20px" class="mr-2" />
+              Friends
+            </button>
+            <button
+              class="items-center shrink-0 py-2.5 px-4 font-roboto_regular text-sm text-black transition ease-in-out hover:bg-bg hidden sm:inline-flex"
+            >
+              <img src="/public/icons/photos.svg" alt="Photos" width="20px" height="20px" class="mr-2" />
+              Photos
+            </button>
+            <button class="items-center shrink-0 py-2.5 px-2 transition ease-in-out hover:bg-bg hidden sm:inline-flex">
+              <img src="/public/icons/settings.svg" alt="Settings" width="20px" height="20px" class="mr-2" />
+              <img src="/public/icons/down-arrow.svg" alt="Down arrow" width="24px" height="24px" />
+            </button>
+            <button class="items-center py-2.5 px-4 transition ease-in-out hover:bg-bg inline-flex sm:hidden">
+              <img src="/public/icons/down-arrow-big.svg" alt="More" width="24px" height="24px" />
+            </button>
+          </nav>
+        </div>
+      </div>
+    </header>
+    <div id="main-page"></div>
+  </body>
+</html>

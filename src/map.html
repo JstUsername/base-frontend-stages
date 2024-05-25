@@ -1,0 +1,25 @@
+<div class="mx-auto max-w-[1440px]">
+  <div id="map-block" class="m-8 px-8 pb-8 bg-white">
+    <div class="map-header flex justify-between py-[16px]">
+      <span class="font-roboto_regular text-base text-black">Basic map</span>
+      <div class="inline-flex gap-2">
+        <button class="shrink-0 transition ease-in-out hover:scale-110">
+          <img src="/public/icons/down-arrow-big.svg" height="24px" width="24px" alt="Hide map" />
+        </button>
+        <button id="reload-map" class="shrink-0 transition ease-in-out hover:scale-110">
+          <img src="/public/icons/reload.svg" height="24px" width="24px" alt="Reload map" />
+        </button>
+        <button class="shrink-0 transition ease-in-out hover:scale-110">
+          <img src="/public/icons/close.svg" height="24px" width="24px" alt="Close map" />
+        </button>
+      </div>
+    </div>
+    <div id="map-body" class="flex justify-center align-middle h-[480px]">
+      <img
+        id="map-loader"
+        src="/public/icons/reload.svg"
+        class="absolute self-center w-[48px] animate-spin sm:w-[72px]"
+      />
+    </div>
+  </div>
+</div>
