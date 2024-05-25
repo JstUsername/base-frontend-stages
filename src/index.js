@@ -47,33 +47,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // Navigation block
 function initNavigation() {
-  const homeLink = document.getElementById('homeLink');
-  const activityLink = document.getElementById('activityLink');
-  const mapLink = document.getElementById('mapLink');
-  const timeLink = document.getElementById('timeLink');
-  homeLink.addEventListener('click', () => {
-    route();
-    activityLink.classList.remove('bg-bg');
-    mapLink.classList.remove('bg-bg');
-    timeLink.classList.remove('bg-bg');
-  });
-  activityLink.addEventListener('click', () => {
-    route();
-    activityLink.classList.add('bg-bg');
-    mapLink.classList.remove('bg-bg');
-    timeLink.classList.remove('bg-bg');
-  });
-  mapLink.addEventListener('click', () => {
-    route();
-    activityLink.classList.remove('bg-bg');
-    mapLink.classList.add('bg-bg');
-    timeLink.classList.remove('bg-bg');
-  });
-  timeLink.addEventListener('click', () => {
-    route();
-    activityLink.classList.remove('bg-bg');
-    mapLink.classList.remove('bg-bg');
-    timeLink.classList.add('bg-bg');
+  const links = ['activityLink', 'mapLink', 'timeLink', 'homeLink'].map((val) => document.getElementById(val));
+  links.forEach((elem) => {
+    elem.addEventListener('click', () => {
+      route();
+      links.forEach((elem) => elem.classList.remove('bg-bg'));
+      if (elem.id !== 'homeLink') {
+        elem.classList.add('bg-bg');
+      }
+    });
   });
 }
 initNavigation();
